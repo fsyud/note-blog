@@ -1,0 +1,50 @@
+---
+title: 'Kotlin Project Directory structure'
+description: 'kotlin study 1'
+pubDate: '19 Mar 2024'
+heroImage: '../../assets/images/banner.jpg'
+category: 'Technology'
+tags: ['kotlin']
+---
+
+在Kotlin开发的Android应用中，通常会有一些标准的文件和目录结构。这种结构有助于组织代码和资源，使得其他开发人员能够更容易地理解和维护应用。下面是一个典型的Kotlin Android应用的文件和目录结构：
+
+## 源代码目录（src）：
+
+- main: 主要的源代码和资源目录。
+- java: 存放应用的Kotlin或Java源代码文件。
+- res: 存放应用的资源文件，例如图像、布局和字符串资源。
+- AndroidManifest.xml: Android的清单文件，描述了应用的基本信息和权限。
+
+## 构建文件：
+
+build.gradle: Gradle构建文件，包含了构建应用所需的配置和依赖项。
+
+## Gradle配置文件：
+
+gradle.properties: Gradle的配置文件，可以用于设置构建选项和其他配置。
+
+## Gradle Wrapper：
+
+gradlew和gradlew.bat: 这些脚本可以用于在不安装Gradle的情况下运行构建。
+
+## 测试目录：
+
+androidTest: 存放用于Android UI测试的源代码和资源。
+test: 存放用于单元测试的源代码。
+
+## 其他目录和文件：
+
+.gitignore: （如果使用git）指定哪些文件和目录应该被git忽略。
+README.md, LICENSE, 等: 提供项目文档和许可证信息。
+
+## 资源子目录：
+
+drawable: 存放图像和其他可绘制资源。
+layout: 存放XML布局文件。
+values: 存放XML资源文件，例如字符串、颜色和尺寸。
+
+## 资产目录（assets）：
+
+用于存放应用的资产文件，例如未编译的文本、音频和视频文件。
+每个Kotlin Android应用可能会有一些特定的文件和目录结构，以适应该应用的特定需求和开发团队的偏好。上述结构是一个基本的、通用的结构，可以作为创建和组织Kotlin Android应用的基础。
