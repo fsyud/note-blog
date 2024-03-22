@@ -36,3 +36,16 @@ WebRTC（Web Real-Time Communications）是一项实时通讯技术，它允许�
 
 2012 年，Google 将 WebRTC 集成到 Chrome 浏览器中。于是我们就可以愉快的在浏览器之间进行音视频通信。
 当前除了 IE 之外的浏览器都已支持 WebRTC。
+
+## 获取DOM转成流
+
+```ts
+const codeImage = new Image()
+const svg = document.getElementById('QRCode') as any
+const svgData = new XMLSerializer().serializeToString(svg)
+codeImage.src = `data:image/svg+xml;base64,${btoa(svgData)}`
+
+codeImage.onload = () => {
+	canvas.drawImage(codeImage, 300, 225)
+}
+```
