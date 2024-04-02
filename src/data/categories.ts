@@ -1,2 +1,2 @@
 // List of categories for blog posts
-export const CATEGORIES = ['Technology', 'Photos', 'About', 'Think', 'Life'] as const
+export const CATEGORIES = ['技术', '照片', '关于', '思考', '生活'] as const

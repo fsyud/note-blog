@@ -1,0 +1,92 @@
+---
+title: 'Kotlin 碎片'
+description: 'kotlin 学习-02'
+pubDate: '19 Mar 2024'
+heroImage: '../../assets/images/bg5.jpg'
+category: '技术'
+tags: ['kotlin']
+---
+
+## Kotlin 伴生对象 (Companion Object)
+
+### 伴生对象(companion object)的诞生
+
+伴生对象(companion object)的出现是为了解决 Java 静态方法(static)的反面向对象（Anti-OOP）的问题。我们知道 Java 中，static 方法是无法声明为接口，无法被重写的。用学术性话语来说，static 方法没有面向对象的 消息传递 和 延迟绑定 特性[参考]。而为了满足 Kotlin 一切皆对象的特性，以及提升与 Java 的兼容性，提出了伴生对象来代替 static 方法。
+
+companion object 是一个对象，在类初始化时被实例化。 伴生对象不是类的 static 方法，而是类的实例化对象，所以在其内部可以声明接口，方法也可以被重写，具备面向对象的所有特点。
+
+在编程中，特别是在 Kotlin 和 Scala 等语言中，伴生对象（Companion Object）是指一个特定的构造，它允许您将函数和属性与类本身关联，而不是与类的实例关联。这个概念类似于Java或C#等语言中的静态成员。
+
+```js
+class MyClass {
+    companion object {
+        fun companionFunction() {
+            println("这是一个伴生函数")
+        }
+    }
+}
+
+fun main() {
+    MyClass.companionFunction() // 使用类名直接调用伴生函数
+}
+
+```
+
+```js
+class MyClass {
+    companion object {
+        val myStaticVariable = 42
+        fun myStaticFunction() {
+            // 这里可以访问 MyClass 的私有成员
+            val privateVariable = MyClass().privateVariable
+            // 执行其他操作
+        }
+    }
+    private var privateVariable = 0
+}
+
+fun main() {
+    // 访问 Companion object 中的静态成员
+    val staticVariable = MyClass.myStaticVariable
+    // 调用 Companion object 中的静态函数
+    MyClass.myStaticFunction()
+}
+```
+
+### 特点：
+
+- 伴生对象相当于类的对象，可直接通过类名访问伴生对象的成员；
+- 每个类最多定义一个伴生对象；
+- kotlin 没有 static 关键字，伴生对象是为弥补 kotlin 没有 static 修饰的静态成员的不足；
+- @JvmStatic 注解只能用在伴生对象里，修饰伴生对象内的属性和函数。
+
+## kotlin lateinit
+
+lateinit是 Kotlin 中的一个关键字，用于声明一个变量或属性，它的初始化可以延迟到第一次使用时。当使用lateinit修饰变量或属性时，Kotlin 会在第一次访问该变量或属性时自动调用其初始化代码。
+以下是一个简单的示例，展示了如何在 Kotlin 中使用lateinit：
+
+```js
+class MyClass {
+    lateinit var myVariable: Int
+    // 初始化 myVariable 的代码
+    fun initializeMyVariable() {
+        myVariable = 42
+    }
+
+    fun useMyVariable() {
+        // 这里会触发 myVariable 的初始化
+        print(myVariable)
+    }
+}
+
+fun main() {
+    val myClass = MyClass()
+    // 调用 initializeMyVariable 函数来初始化 myVariable
+    myClass.initializeMyVariable()
+    myClass.useMyVariable()
+}
+```
+
+在上面的示例中，myVariable是一个使用lateinit修饰的变量。在initializeMyVariable()方法中，对myVariable进行了初始化。在useMyVariable()方法中，第一次访问myVariable，会触发其初始化代码的执行。
+使用lateinit的好处是，可以在需要时才进行变量或属性的初始化，避免了在类初始化时就进行不必要的计算或资源分配。同时，lateinit也提供了更好的灵活性，允许在不同的上下文中进行初始化。
+需要注意的是，lateinit变量必须在使用前被初始化，否则会抛出LateInitException异常。另外，lateinit也不适用于所有情况，在某些场景下，可能需要使用其他的初始化方式，如初始化表达式或构造函数参数。
