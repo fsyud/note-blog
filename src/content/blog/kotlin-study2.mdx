@@ -90,3 +90,123 @@ fun main() {
 在上面的示例中，myVariable是一个使用lateinit修饰的变量。在initializeMyVariable()方法中，对myVariable进行了初始化。在useMyVariable()方法中，第一次访问myVariable，会触发其初始化代码的执行。
 使用lateinit的好处是，可以在需要时才进行变量或属性的初始化，避免了在类初始化时就进行不必要的计算或资源分配。同时，lateinit也提供了更好的灵活性，允许在不同的上下文中进行初始化。
 需要注意的是，lateinit变量必须在使用前被初始化，否则会抛出LateInitException异常。另外，lateinit也不适用于所有情况，在某些场景下，可能需要使用其他的初始化方式，如初始化表达式或构造函数参数。
+
+## kotlin mutableListOf
+
+mutableListOf是 Kotlin 中的一个函数，用于创建一个可变的列表。它返回一个MutableList对象，可以对其进行添加、删除和修改元素的操作。MutableList是 Kotlin 集合框架中的一个可变列表实现，基于 Java 的ArrayList。
+
+以下是一个简单的示例，展示了如何在 Kotlin 中使用mutableListOf创建可变列表：
+
+```js
+import kotlin.collections.mutableListOf
+
+fun main() {
+    // 创建一个可变的字符串列表
+    val myMutableList = mutableListOf("苹果", "香蕉", "橙子")
+
+    // 添加新元素
+    myMutableList.add("猕猴桃")
+
+    // 删除元素
+    myMutableList.removeAt(1)
+
+    // 修改元素
+    myMutableList[1] = "梨"
+
+    // 打印列表的内容
+    print(myMutableList)
+}
+```
+
+在上面的示例中，mutableListOf()函数接受一个或多个参数，用于指定列表的初始元素。返回的MutableList对象可以通过add()、remove()、set()等方法进行操作，修改列表的内容。
+需要注意的是，mutableListOf返回的是一个可变的列表，而不是只读的列表。如果需要创建一个只读的列表，可以使用listOf()函数。
+
+## kotlin dp sp px区别
+
+在 Android 开发中，dp（Device-Independent Pixels）、sp（Scale-Independent Pixels）和px（Pixels）是用于表示屏幕上像素密度的单位。它们之间的区别如下：
+dp是一种与设备无关的像素单位，它是基于屏幕的物理密度来计算的。dp可以根据不同的屏幕密度自动进行转换，以保证在不同密度的设备上显示相同的物理尺寸。使用dp可以确保你的 UI 在不同密度的设备上保持一致的外观。
+sp是一种与缩放无关的像素单位，它也是基于屏幕的物理密度来计算的。与dp类似，sp可以根据不同的屏幕密度自动进行转换，以保证在不同密度的设备上显示相同的物理尺寸。sp主要用于设置文本大小，因为它可以根据用户的字体大小设置进行缩放。
+px是一种与设备无关的像素单位，它表示屏幕上的实际像素数量。使用px可以确保你的 UI 在不同密度的设备上保持相同的像素数量，但这并不意味着它们在物理尺寸上是相同的。
+在 Kotlin 中，你可以使用相应的常量来表示dp和sp单位。例如，使用Dp表示dp单位，使用Sp表示sp单位。
+
+## kotlin TextureView
+
+TextureView是 Android 中的一个视图类，它可以用于显示纹理图像。TextureView可以用于实现视频播放、游戏界面等功能。TextureView是在Android 4.0（API 14）及更高版本中引入的。
+
+TextureView的主要特点包括：
+
+- 可以直接显示纹理图像，而不需要经过OpenGL ES的渲染管道。
+- 支持硬件加速，可以提供更好的性能。
+- 可以与其他视图组件（如SurfaceView）进行叠加，实现复杂的界面效果。
+- 可以通过TextureView.SurfaceTexture对象获取纹理图像的ID，并用于OpenGL ES的渲染。
+
+下面是一个使用TextureView显示图片的示例代码：
+
+```js
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.SurfaceTexture;
+import android.util.AttributeSet;
+import android.view.TextureView;
+import android.view.View;
+
+public class MyTextureView extends TextureView implements SurfaceTexture.OnFrameAvailableListener {
+
+    private SurfaceTexture mSurfaceTexture;
+    private Bitmap mBitmap;
+
+    public MyTextureView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        // 获取 SurfaceTexture 对象
+        mSurfaceTexture = new SurfaceTexture(0);
+        // 设置 SurfaceTexture 的回调对象
+        mSurfaceTexture.setOnFrameAvailableListener(this);
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        // 释放之前的位图资源
+        if (mBitmap!= null) {
+            mBitmap.recycle();
+        }
+        // 设置新的位图
+        mBitmap = bitmap;
+        // 将位图传递给 SurfaceTexture
+        mSurfaceTexture.setDefaultBufferSize(mBitmap.getWidth(), mBitmap.getHeight());
+        mSurfaceTexture.updateTexImage();
+    }
+
+    @Override
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        // 获取 SurfaceTexture 的图像数据
+        Bitmap bitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        try {
+            // 从 SurfaceTexture 获取图像数据
+            SurfaceTextureLxTexture image = new SurfaceTextureLxTexture(mSurfaceTexture);
+            image.getImage(bitmap);
+            // 将图像显示在TextureView 上
+            this.setImageBitmap(bitmap);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+// 在 XML 布局文件中使用 MyTextureView
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.android.MyTextureView
+        android:id="@+id/textureView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
+```
+
+上述代码中，首先创建了一个继承自TextureView的自定义视图类MyTextureView，并实现了SurfaceTexture.OnFrameAvailableListener接口。在构造函数中，创建了一个SurfaceTexture对象，并设置了SurfaceTexture的回调对象。然后，通过setBitmap方法，可以将一个Bitmap对象传递给SurfaceTexture，并在onFrameAvailable方法中获取图像数据，并将其显示在TextureView上。最后，在 XML 布局文件中使用MyTextureView。
+
+使用TextureView显示图片时，需要注意以下几点：
+
+- TextureView只能显示固定尺寸的图片，如果图片尺寸与TextureView的尺寸不一致，可能会导致图像变形或显示不全。
+- TextureView的性能可能会受到硬件设备和系统版本的影响，在某些情况下可能会出现卡顿或图像闪烁等问题。
+- 在使用TextureView显示图片时，需要注意内存管理，及时释放不再使用的图片资源，避免内存泄漏。
