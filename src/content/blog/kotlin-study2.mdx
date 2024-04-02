@@ -1,7 +1,7 @@
 ---
 title: 'Kotlin 碎片'
 description: 'kotlin 学习-02'
-pubDate: '19 Mar 2024'
+pubDate: '21 Mar 2024'
 heroImage: '../../assets/images/bg5.jpg'
 category: '技术'
 tags: ['kotlin']
@@ -97,7 +97,7 @@ mutableListOf是 Kotlin 中的一个函数，用于创建一个可变的列表�
 
 以下是一个简单的示例，展示了如何在 Kotlin 中使用mutableListOf创建可变列表：
 
-```js
+```
 import kotlin.collections.mutableListOf
 
 fun main() {
@@ -142,7 +142,7 @@ TextureView的主要特点包括：
 
 下面是一个使用TextureView显示图片的示例代码：
 
-```js
+```
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -210,3 +210,13 @@ public class MyTextureView extends TextureView implements SurfaceTexture.OnFrame
 - TextureView只能显示固定尺寸的图片，如果图片尺寸与TextureView的尺寸不一致，可能会导致图像变形或显示不全。
 - TextureView的性能可能会受到硬件设备和系统版本的影响，在某些情况下可能会出现卡顿或图像闪烁等问题。
 - 在使用TextureView显示图片时，需要注意内存管理，及时释放不再使用的图片资源，避免内存泄漏。
+
+## kotlin it vs this
+
+在Kotlin中，"it" 和 "this" 都是代表当前的上下文对象。它们的使用情况取决于特定的场景。
+
+- "this"是显示声明的上下文对象的引用。在类、对象、扩展函数或顶层声明中，"this" 可以被用来引用当前的对象。
+
+- "it"是在一些特殊场景中隐含的上下文对象的引用，例如Lambda表达式。在这种情况下，"it" 可以代替显式地声明的参数名称。
+
+总的来说，"it" 被用于简化代码并使其更简洁，而 "this" 则常常用于在代码中显式地引用当前的上下文对象。

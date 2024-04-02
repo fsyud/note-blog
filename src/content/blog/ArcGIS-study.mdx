@@ -1,0 +1,54 @@
+---
+title: 'ArcGIS 碎片'
+description: 'ArcGIS 学习-01'
+pubDate: '2 Apr 2024'
+heroImage: '../../assets/images/bg5.jpg'
+category: '技术'
+tags: ['ArcGIS']
+---
+
+## GraphicsOverlay
+
+GraphicsOverlay是ArcGIS API for Android中的一个类，用于在MapView上添加图形覆盖层。它可以用于显示各种图形元素，如点、线、多边形等。
+
+以下是使用GraphicsOverlay的基本步骤：
+
+创建GraphicsOverlay对象：
+
+```
+GraphicsOverlay overlay = new GraphicsOverlay();
+```
+
+获取MapView的GraphicsLayer：
+
+```
+GraphicsLayer layer = mapView.getGraphicsLayer();
+```
+
+将GraphicsOverlay添加到GraphicsLayer中：
+
+```
+layer.addOverlay(overlay);
+```
+
+创建图形元素：
+
+```
+Point point = new Point(mapView.getPointFromGeoPoint(new GeoPoint(38.8892, -77.0329)));
+overlay.addPoint(point);
+```
+
+设置图形元素的属性：
+
+```
+point.setColor(Color.RED);
+point.setSize(10f);
+```
+
+刷新MapView：
+
+```
+mapView.refresh();
+```
+
+通过以上步骤，可以将图形元素添加到GraphicsOverlay中，并在MapView上显示出来。可以根据需要创建不同类型的图形元素，并设置它们的属性。
