@@ -6,7 +6,7 @@ export class OneElement extends LitElement {
 	}
 }
 
-customElements.define('oen-element', OneElement)
+customElements.define('one-element', OneElement)
 
 declare global {
 	interface HTMLElementTagNameMap {
