@@ -8,6 +8,7 @@ import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
 import SButton from '@/components/mdx/SButton'
 import Disqus from '@/components/Disqus'
+import Giscus from '@/components/Giscus'
 import { disqusConfig } from '@/data/disqus.config'
 
 const posts = await getCollection('blog')
@@ -64,6 +65,8 @@ const disqusEnabled = disqusConfig.enabled
 				<h2 class='font-bold text-lg dark:text-white mb-6'>Artículos Relacionados</h2>
 				<ListRelatedPosts posts={relatedPosts} />
 			</footer>
+
+			<Giscus />
 		</article>
 	</div>
 
