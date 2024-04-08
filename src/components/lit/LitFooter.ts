@@ -1,6 +1,13 @@
-import { LitElement, html } from 'lit'
+import { LitElement, html, css } from 'lit'
 
 export class LitFooter extends LitElement {
+	static styles = css`
+		footer {
+			display: flex;
+			justify-content: center;
+		}
+	`
+
 	today = new Date()
 
 	// Render the UI as a function of component state
