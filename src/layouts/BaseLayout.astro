@@ -2,6 +2,7 @@
 import BaseHead from '@/components/BaseHead'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { OneElement } from '@/lit/OneLit.ts'
 import ProviderTheme from '@/components/ProviderTheme'
 import ProviderAnimations from '@/components/ProviderAnimations'
 import TwSizeIndicator from '@/components/TwSizeIndicator'
@@ -21,7 +22,7 @@ const { title, description, image, articleDate } = Astro.props
 			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-6xl grid gap-12 mt-4 overflow-hidden md:overflow-visible'
 		>
 			<Header />
-			<slot />
+			<OneElement><slot /></OneElement>
 			<Footer />
 		</main>
 		<TwSizeIndicator />
