@@ -220,3 +220,37 @@ public class MyTextureView extends TextureView implements SurfaceTexture.OnFrame
 - "it"是在一些特殊场景中隐含的上下文对象的引用，例如Lambda表达式。在这种情况下，"it" 可以代替显式地声明的参数名称。
 
 总的来说，"it" 被用于简化代码并使其更简洁，而 "this" 则常常用于在代码中显式地引用当前的上下文对象。
+
+## RecyclerView
+
+RecyclerView 是 Android 开发中用于显示列表或网格样式数据的控件。它是 ListView 的替代者，提供了更灵活和高效的方式来管理和显示大量数据。
+RecyclerView 的优势包括：
+
+- 支持多种布局管理器，如 LinearLayoutManager（线性布局）、GridLayoutManager（网格布局）和 StaggeredGridLayoutManager（瀑布流布局）等。
+- 支持动画效果，如添加、删除和移动条目时的动画。
+- 提供了强大的适配器机制，可以方便地将数据与 RecyclerView 关联，并实现数据的更新和刷新。
+- 支持回收和复用视图，可以在滑动时高效地加载和显示数据。
+- 提供了许多回调方法，可以监听 RecyclerView 的滚动事件、条目点击事件等。
+
+## MutableList
+
+MutableList 是 Java 集合框架中的一个接口，它继承自 List 接口，并且添加了一些可变的操作，使得列表可以进行动态修改。MutableList 接口定义了以下方法：
+
+```
+add(E element)：向列表中添加一个元素。
+remove(int index)：从列表中删除指定索引处的元素。
+set(int index, E element)：将指定索引处的元素修改为新的值。
+clear()：清空列表中的所有元素。
+addAll(Collection<? extends E> c)：将另一个集合中的所有元素添加到当前列表中。
+removeAll(Collection<?> c)：从当前列表中删除与指定集合中相同的元素。
+retainAll(Collection<?> c)：保留当前列表中与指定集合中相同的元素，删除其他元素。
+get(int index)：获取指定索引处的元素。
+set(int index, E element)：将指定索引处的元素修改为新的值。
+size()：获取列表的大小。
+isEmpty()：判断列表是否为空。
+contains(Object o)：判断列表是否包含指定的元素。
+indexOf(Object o)：获取指定元素在列表中的索引。
+lastIndexOf(Object o)：获取指定元素在列表中最后一次出现的索引。
+subList(int fromIndex, int toIndex)：获取列表的子列表。
+以上是 MutableList 接口的主要方法，通过实现 MutableList 接口，可以创建可变的列表，方便进行动态修改和操作。
+```
