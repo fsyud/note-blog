@@ -254,3 +254,32 @@ lastIndexOf(Object o)：获取指定元素在列表中最后一次出现的索�
 subList(int fromIndex, int toIndex)：获取列表的子列表。
 以上是 MutableList 接口的主要方法，通过实现 MutableList 接口，可以创建可变的列表，方便进行动态修改和操作。
 ```
+
+## Android Studio中Make Project、Clean Project、Rebuild Project 的作用
+
+- Make Project：编译Project下所有Module，一般是自上次编译后Project下有更新的文件，增量编译，不生成Apk。
+
+- Make Selected Modules：编译指定的Module，一般是自上次编译后Module下有更新的文件，增量编译，不生成Apk。
+
+- Clean Project：删除之前编译后的编译文件。部分版本的AS会自动重新编译整个Project，不生成Apk。
+
+- Rebuild Project：先执行Clean操作，删除之前编译的编译文件和可执行文件，然后重新编译新的编译文件，不生成Apk
+
+- Build APK：前面4个选项都是编译，没有生成apk文件[旧版本AS，新版本的AS会自动生成debug.apk]，如果想生成Apk，需要点击Build APK。
+
+- Generate Signed APK：生成有签名的Apk(一般项目嵌入第三方，生成release包时必须混淆，否则无法生成Apk)。
+
+## Android Studio无法断点问题解决
+
+问题：
+Disconnected from the target VM, address: ‘localhost:56514’, transport: ‘socket’（已断开与目标VM的连接，地址：‘localhost:56514’，传输：‘socket’）以后app进入等待状态然后黑屏了，无法进入调试；
+
+个人理解：
+可能是我当前的项目在使用.so库，具体问题定位不到，当前的机型我换了其他的项目，都是很问题，只有使用ndk开发的项目会出现此问题，所以个人认为是ndk引发的问题。
+
+第一种解决方案
+重启android studio 和手机，这种应该是端口占用，android studio一般出现问题重启可能解决百分之八十的问题。
+
+第二种解决方案（可以通过修改build type设置为java模式）
+最后解决方案以下配图：
+Run->Edit Configuration->Debugger->Build Type设置为Java模式，则可以正常调试。
