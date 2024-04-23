@@ -52,3 +52,25 @@ mapView.refresh();
 ```
 
 通过以上步骤，可以将图形元素添加到GraphicsOverlay中，并在MapView上显示出来。可以根据需要创建不同类型的图形元素，并设置它们的属性。
+
+## REQUEST=GetCapabilities
+
+```
+/geoserver/mh/wms?service=WMS&REQUEST=GetCapabilities&FORMAT=image/png&CRS=EPSG:4326&width=256&height=256&layers=test&bbox=-180,-90,180,90
+```
+
+"REQUEST=GetCapabilities" 是一种在 Web 服务或地理信息系统（GIS）中常见的请求。它用于获取服务的能力信息。
+
+GetCapabilities 请求的主要目的是获取关于服务的以下信息：
+
+- 可用的操作或功能。
+- 支持的数据格式。
+- 服务的限制和约束。
+- 通过发送 "REQUEST=GetCapabilities" 请求，客户端可以了解服务的功能和能力，以便决定如何使用该服务。
+
+在地理信息系统中，GetCapabilities 请求通常用于获取地图服务的相关信息，例如：
+
+- 可用的图层。
+- 图层的属性和参数。
+- 支持的投影和坐标系。
+- 这有助于客户端确定如何与地图服务进行交互，并根据需要进行相应的配置和使用。
