@@ -7,6 +7,8 @@ category: '思考'
 tags: ['computer']
 ---
 
+## 100 个接口的并发（伪并发）处理
+
 ```js
 sendRequest(
 	[
@@ -20,7 +22,6 @@ sendRequest(
 	],
 
 	3, //并发数
-
 	(res) => {
 		console.log(res)
 	}
@@ -48,19 +49,14 @@ function sendRequest(requestList, limits, callback) {
 	const concurrentNum = Math.min(limits, requestList.length)
 
 	let concurrentCount = 0 // 当前并发数
-
 	// 第一次先跑起可以并发的任务
 
 	const runTaskNeeded = () => {
 		let i = 0
-
 		// 启动当前能执行的任务
-
 		while (i < concurrentNum) {
 			i++
-
 			console.log('111')
-
 			runTask()
 		}
 	}
@@ -70,7 +66,6 @@ function sendRequest(requestList, limits, callback) {
 	const runTask = () => {
 		console.log('runTask')
 		const task = promises.shift()
-
 		task && runner(task)
 	}
 
@@ -88,9 +83,7 @@ function sendRequest(requestList, limits, callback) {
 		} finally {
 			// 并发数--
 			concurrentCount--
-
 			console.log(concurrentCount, 'concurrentCount33')
-
 			// 捞起下一个任务
 			picker()
 		}
@@ -102,13 +95,10 @@ function sendRequest(requestList, limits, callback) {
 		console.log(concurrentCount, promises.length, 'concurrentCount')
 		if (concurrentCount < limits && promises.length > 0) {
 			// 继续执行任务
-
 			runTask()
-
 			// 队列为空的时候，并且请求池清空了，就可以执行最后的回调函数了
 		} else if (promises.length == 0 && concurrentCount == 0) {
 			// 执行结束
-
 			callback && callback()
 		}
 	}
