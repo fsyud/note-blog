@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@astrojs/lit':
-        specifier: ^4.0.1
-        version: 4.0.1(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)
+        specifier: ^4.3.0
+        version: 4.3.0(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)
       '@astrojs/rss':
         specifier: 4.0.1
         version: 4.0.1
@@ -132,8 +132,8 @@ packages:
   '@astrojs/internal-helpers@0.4.0':
     resolution: {integrity: sha512-6B13lz5n6BrbTqCTwhXjJXuR1sqiX/H6rTxzlXx+lN1NnV4jgnq/KJldCQaUWJzPL5SiWahQyinxAbxQtwgPHA==}
 
-  '@astrojs/lit@4.0.1':
-    resolution: {integrity: sha512-dBTtsTlKC3TJhsZl5uzcwwTAuP1mgY3bHZDdAQVT7uVYXOfpeYeS9crQbr32BKRGx5WbqqZPDdz0TVyFpjBHSA==}
+  '@astrojs/lit@4.3.0':
+    resolution: {integrity: sha512-ve2f86MLKfDpCaUcCBZU8mfCyI0dHOC7WLYBM6uo3KJ7oXNg+6NYQ8KIjmLLy/195mjRFRGphSgvPcVlOXOy5w==}
     peerDependencies:
       '@webcomponents/template-shadowroot': ^0.2.1
       lit: ^3.1.0
@@ -3331,6 +3331,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -5369,6 +5370,7 @@ packages:
 
   react-beautiful-dnd@13.1.1:
     resolution: {integrity: sha512-0Lvs4tq2VcrEjEgDXHjT98r+63drkKEgqyxdA7qD3mvKwga6a5SscbdLPO2IExotU1jW8L0Ksdl0Cj2AF67nPQ==}
+    deprecated: 'react-beautiful-dnd is now deprecated. Context and options: https://github.com/atlassian/react-beautiful-dnd/issues/2672'
     peerDependencies:
       react: ^16.8.5 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.5 || ^17.0.0 || ^18.0.0
@@ -6714,7 +6716,7 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.0': {}
 
-  '@astrojs/lit@4.0.1(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)':
+  '@astrojs/lit@4.3.0(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)':
     dependencies:
       '@lit-labs/ssr': 3.2.2
       '@lit-labs/ssr-client': 1.1.7

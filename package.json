@@ -33,7 +33,7 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
-		"@astrojs/lit": "^4.0.1",
+		"@astrojs/lit": "^4.3.0",
 		"@astrojs/rss": "4.0.1",
 		"@webcomponents/template-shadowroot": "^0.2.1",
 		"astro": "4.5.12",
