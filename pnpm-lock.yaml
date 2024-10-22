@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@astrojs/lit':
-        specifier: ^4.0.1
-        version: 4.0.1(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)
+        specifier: ^4.3.0
+        version: 4.3.0(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)
       '@astrojs/rss':
         specifier: 4.0.1
         version: 4.0.1
@@ -132,8 +132,8 @@ packages:
   '@astrojs/internal-helpers@0.4.0':
     resolution: {integrity: sha512-6B13lz5n6BrbTqCTwhXjJXuR1sqiX/H6rTxzlXx+lN1NnV4jgnq/KJldCQaUWJzPL5SiWahQyinxAbxQtwgPHA==}
 
-  '@astrojs/lit@4.0.1':
-    resolution: {integrity: sha512-dBTtsTlKC3TJhsZl5uzcwwTAuP1mgY3bHZDdAQVT7uVYXOfpeYeS9crQbr32BKRGx5WbqqZPDdz0TVyFpjBHSA==}
+  '@astrojs/lit@4.3.0':
+    resolution: {integrity: sha512-ve2f86MLKfDpCaUcCBZU8mfCyI0dHOC7WLYBM6uo3KJ7oXNg+6NYQ8KIjmLLy/195mjRFRGphSgvPcVlOXOy5w==}
     peerDependencies:
       '@webcomponents/template-shadowroot': ^0.2.1
       lit: ^3.1.0
@@ -6716,7 +6716,7 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.0': {}
 
-  '@astrojs/lit@4.0.1(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)':
+  '@astrojs/lit@4.3.0(@webcomponents/template-shadowroot@0.2.1)(lit@3.1.3)':
     dependencies:
       '@lit-labs/ssr': 3.2.2
       '@lit-labs/ssr-client': 1.1.7
